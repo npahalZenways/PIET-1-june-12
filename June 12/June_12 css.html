@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <style>
+
+            /* internal styles */
+
+            /* tag-name selector */
+            p{
+                color: blue
+            }
+
+            /* class selector */
+            p .para{
+                color: cyan;
+            }
+
+            /* selects all p tags which lie inside p */
+            div p{
+                color: brown
+            }
+
+            .para p{
+                color:coral
+            }
+
+            /* selects all p tags which are immediate child of div */
+            div > p{
+                color: darkgreen
+            }
+
+            /* selects all p tags which lie immediately after div */
+            div + p{
+                font-size: 30px;
+            }
+
+            
+        </style>
+        
+        <!-- <link rel="stylesheet" href="./June_12.css"> -->
+
+    </head>
+    <body>
+        <!-- inline styles -->
+        <p>
+            This is a para
+        </p>
+
+        <p class="para">Para2</p>
+        <p class="para">Para3</p>
+        <p>
+            <span class="para">Span tag</span> rest of the text
+        </p>
+        <div class="para">
+            <p>
+                para inside para class
+            </p>
+        </div>
+
+        <p>
+            para after div
+        </p>
+
+        <div>
+            <p>
+                Para inside div
+            </p>
+        </div>
+
+        <div>
+            <section>
+                <p>
+                    para inside section which is child of div
+                </p>
+            </section>
+        </div>
+
+        <div>
+            <p>Para 1</p>
+            <p>Para 2</p>
+            <section>
+                <p>Para 3</p>
+                <p>Para 4</p>        
+            </section>
+
+            <div>
+                <p>Para 5</p>
+            </div>
+
+            <p>Para 6</p>
+            <p>Para 7</p>
+
+        </div>
+    </body>
+</html>
