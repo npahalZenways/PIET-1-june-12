@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <style>
+            /* div{
+                background-color: blue;
+            }
+            p{
+                display: inline-block;
+                background-color: yellow;
+                
+            } */
+            div{
+
+                /* 
+                
+                justify-content always work on primary axis
+                align-items works on secondary axis
+
+                flex-direction: row
+                    primary-axis: x-axis
+                    secondary-axis: y-axis
+
+                flex-direction: column
+                    primary-axis: y-axis
+                    secondary-axis: x-axis
+                 */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-end;
+                height: 200px;
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>para1</p>
+            <p>para2</p>
+            <p>para3</p>
+        </div>
+        <!-- display: 
+            block, none, inline, inline-block, flex;
+        -->
+    </body>
+</html>
