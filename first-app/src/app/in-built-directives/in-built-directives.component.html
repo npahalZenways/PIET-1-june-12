@@ -1,0 +1,82 @@
+<!-- structural directives -->
+<!-- 
+  
+  *ngIf -angular 2
+  *ngIfElse -angular 4/5
+  *ngIfThenElse -angular 6
+
+  TRV - template refernce variable
+
+  syntax: *ngIf="condition; else TRV of ng-template"
+-->
+
+<button (click)="isTrue = !isTrue">Toggle</button>
+
+<p *ngIf="isTrue; then thenBlock; else elseBlock">Condition is true</p>
+
+<!-- <p [ngIf]="isTrue"> -->
+
+<ng-template #thenBlock>
+  <p>
+    Then block
+  </p>
+</ng-template>
+
+<ng-template #elseBlock>
+  <p>
+    condition is false
+  </p>
+</ng-template>
+
+<!-- *ngForOf -->
+<!-- index, even, odd -->
+<p *ngFor="let el of myArray; let i = index; let e = even">
+  <span *ngIf="!e">
+    {{i+1}}#. {{el}}
+  </span>
+</p>
+
+<!-- <p>{{myArray[0]}}</p>
+<p>{{myArray[1]}}</p>
+<p>{{myArray[2]}}</p>
+<p>{{myArray[3]}}</p>
+<p>{{myArray[4]}}</p> -->
+
+<button (click)="myArray.push(10)">Push</button>
+<button (click)="myArray.pop()">Pop</button>
+
+<!-- ngSwitch
+      *ngSwitchCase
+      *ngSwitchDefault
+-->
+
+<input type="text" [(ngModel)]="name">
+
+<div [ngSwitch]="name">
+  <p *ngSwitchCase="'nitin'">Nitin</p>
+  <p *ngSwitchCase="'amit'">Amit</p>
+  <p *ngSwitchDefault>Nothing matched</p>
+</div>
+
+<!-- attribute directives -->
+
+<!-- ngModel -->
+
+<!-- ngClass -->
+<!-- syntax: [ngClass]="{
+  'classname':condition,
+  'class2': condition
+}" -->
+
+<p [ngClass]="{
+  'red':name == 'red',
+  'blue': name == 'blue',
+  'anotherblue': isTrue,
+  'anotherred': !isTrue
+}">
+  NgClass
+</p>
+
+<p ngNonBindable>
+  {{name}}
+</p>

@@ -1,0 +1,36 @@
+<!-- One-way data binding -->
+
+<!-- interpolation -->
+<p>
+  Value of name is: {{ printName() }}
+</p>
+<p>
+  4 + 4 is {{ 4 + 4 }}
+</p>
+
+<!-- property binding [] -->
+<p [class]="className">Class binded</p>
+
+<!-- event binding () -->
+<button (click)="print($event)">Click</button>
+
+<!-- class binding [class.class_name]="condition"-->
+<p [class.active123]="isTrue">Condition based class binding</p>
+
+<button (click)="isTrue = !isTrue">Toggle condition</button>
+
+<!-- two-way binding -->
+<!-- it works anywhere where an element have a property x and event xChange, there we can write [(x)]="property" -->
+<!-- component <==> view -->
+{{className}}<br><br>
+<input type="text" [(ngModel)]="className" (ngModelChange)="print($event)">
+
+<!-- local template variable or template reference variable -->
+<!-- #name -->
+
+<p #mypara>This is a para</p>
+<p #mypara2>This is a para</p>
+
+<button (click)="print(mypara, mypara2)">
+  Click
+</button>
