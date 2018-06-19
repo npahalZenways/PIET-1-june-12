@@ -6,13 +6,25 @@ import { Custom } from './custom/custom';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { FormsModule } from '@angular/forms';
 import { InBuiltDirectivesComponent } from './in-built-directives/in-built-directives.component';
+import { ParentComponent } from './data-sharing/parent/parent.component';
+import { ChildComponent } from './data-sharing/child/child.component';
+import { DirectivesComponent } from './directives/directives.component';
+import { MyDirective } from "./directives/my-directive";
+import { PipesComponent } from './pipes/pipes.component';
+import { CustomPipe } from "./pipes/my-custom-pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
     Custom,
     DataBindingComponent,
-    InBuiltDirectivesComponent
+    InBuiltDirectivesComponent,
+    ParentComponent,
+    ChildComponent,
+    DirectivesComponent,
+    MyDirective,
+    PipesComponent,
+    CustomPipe
     // remaining - components, directives, pipes etc.
   ],
   imports: [

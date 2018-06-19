@@ -1,0 +1,7 @@
+<p>
+  parent works!
+</p>
+
+<input type="text" [(ngModel)]="abc">
+
+<app-child [name]="abc" (myoutput)="print($event)"></app-child>

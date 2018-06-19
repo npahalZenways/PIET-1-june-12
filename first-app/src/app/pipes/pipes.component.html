@@ -1,0 +1,55 @@
+<!-- pipes -->
+
+<!-- date pipe -->
+<p>Todays's date :- {{today}}</p>
+
+<p>Todays's date with datePipe:- {{today | date | uppercase}}</p>
+
+<p>Todays's date with datePipe and parameter short:- {{today | date : 'short'}}</p>
+
+<p>Todays's date with datePipe and custom format parameter:- {{today | date:'yyyy '}}</p>
+
+<!-- uppercase or lowercase pipe -->
+
+<p>String: {{myString}}</p>
+
+<p>String with uppercase pipe: {{myString | uppercase}}</p>
+
+<p>String with lowercase pipe: {{myString | lowercase}}</p>
+
+<!-- decimalPipe - number -->
+
+<p>Number: {{num}}</p>
+
+<p>Number with number pipe: {{num | number}}</p>
+
+<!-- number: {{minimum digits before decimal}}.{{minimum digits after decimal}}-{{miximum digits after decimal}} -->
+
+<p>Number with number pipe with parameter: {{num | number:'2.4-5'}}</p>
+
+<!-- currencyPipe - currency -->
+
+<p>Currency with currencyPipe: {{num | currency}}</p>
+
+<!-- currency: currencyCode: display - code, symbol, symbol-narrow, string: digitInfo  -->
+
+<p>Currency with currencyPipe and parameter: {{num | currency: 'INR':'code':'2.3-5'}}</p>
+
+<!-- custom pipe -->
+<!-- <p>
+    Custom uppercase pipe : {{ myString | custom:'lowercase'}}
+</p>
+ -->
+
+<input type="text" [(ngModel)]="query" placeholder="Search by name">
+
+<table>
+    <tr>
+       <th>Name</th> 
+       <th>Phone</th> 
+    </tr>
+    <tr *ngFor="let obj of arr | custom : query">
+        <td>{{obj.name}}</td>
+        <td>{{obj.phone}}</td>
+    </tr>
+</table>
