@@ -12,6 +12,9 @@ import { DirectivesComponent } from './directives/directives.component';
 import { MyDirective } from "./directives/my-directive";
 import { PipesComponent } from './pipes/pipes.component';
 import { CustomPipe } from "./pipes/my-custom-pipe";
+import { FormsComponent } from './forms/forms.component';
+import { ServiceCosumer } from './service/service-consumer';
+import { MyService } from './service/my-service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { CustomPipe } from "./pipes/my-custom-pipe";
     DirectivesComponent,
     MyDirective,
     PipesComponent,
-    CustomPipe
+    CustomPipe,
+    FormsComponent,
+    ServiceCosumer
     // remaining - components, directives, pipes etc.
   ],
   imports: [
@@ -34,6 +39,7 @@ import { CustomPipe } from "./pipes/my-custom-pipe";
   ],
   providers: [
     // service
+    // MyService
   ],
   bootstrap: [AppComponent]
 })
