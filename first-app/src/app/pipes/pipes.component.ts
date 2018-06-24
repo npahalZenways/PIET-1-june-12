@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyTrackService } from '../my-track-service';
 
 @Component({
   selector: 'app-pipes',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pipes.component.css']
 })
 export class PipesComponent implements OnInit {
+
+  constructor(private track: MyTrackService){
+    track.signal.subscribe(val => {
+      console.log(val);
+    })
+  }
 
   today = new Date();
 
@@ -31,7 +38,6 @@ export class PipesComponent implements OnInit {
     name: 'Rohan',
     phone: 9876
   }]
-  constructor() { }
 
   ngOnInit() {
   }

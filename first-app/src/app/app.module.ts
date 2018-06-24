@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { Custom } from './custom/custom';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { FormsModule } from '@angular/forms';
 import { InBuiltDirectivesComponent } from './in-built-directives/in-built-directives.component';
@@ -15,11 +14,54 @@ import { CustomPipe } from "./pipes/my-custom-pipe";
 import { FormsComponent } from './forms/forms.component';
 import { ServiceCosumer } from './service/service-consumer';
 import { MyService } from './service/my-service';
+import { RouterModule, Route } from "@angular/router";
+import { ErrorComponent } from './error/error.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { RouteGuard } from './route-guard';
+import { MyTrackService } from './my-track-service';
+import { HttpComponent } from './http/http.component';
+import { HttpClientModule } from '@angular/common/http';
+
+const route: Route[] = [{
+  path: '',
+  redirectTo: 'pipes',
+  pathMatch: 'full'
+},{
+  path: 'pipes',
+  component: PipesComponent,
+  children: [{
+    path: '',
+    redirectTo: 'in-built-directives',
+    pathMatch: 'full'
+  },{
+    path: 'in-built-directives',
+    component: InBuiltDirectivesComponent
+  }]
+},{
+  path: 'forms/:name',
+  component: FormsComponent,
+  data: {
+    name: 'new',
+    id:'ABC@134'
+  }
+},
+{
+  path: 'admin',
+  canActivate: [RouteGuard],
+  loadChildren: './admin/admin#AdminModule'
+},
+{
+  path: 'http',
+  component: HttpComponent
+},
+{
+  path: '**',
+  component: ErrorComponent
+}]
 
 @NgModule({
   declarations: [
     AppComponent,
-    Custom,
     DataBindingComponent,
     InBuiltDirectivesComponent,
     ParentComponent,
@@ -29,17 +71,22 @@ import { MyService } from './service/my-service';
     PipesComponent,
     CustomPipe,
     FormsComponent,
-    ServiceCosumer
-    // remaining - components, directives, pipes etc.
+    ServiceCosumer,
+    ErrorComponent,
+    HttpComponent    // remaining - components, directives, pipes etc.
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(route)
     // modules
   ],
   providers: [
     // service
     // MyService
+    RouteGuard,
+    MyTrackService
   ],
   bootstrap: [AppComponent]
 })

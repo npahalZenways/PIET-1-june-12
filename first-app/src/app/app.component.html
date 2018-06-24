@@ -8,6 +8,12 @@
 
 <!-- <app-pipes></app-pipes> -->
 
-<app-forms></app-forms>
+<!-- <app-forms></app-forms> -->
 
-<service-user></service-user>
+<!-- <service-user></service-user> -->
+
+<button routerLinkActive="abc" [routerLinkActiveOptions]="{exact: true}" routerLink="pipes">Pipes</button>
+<button routerLinkActive="abc" routerLink="forms/nitin">Forms</button>
+<button routerLink="admin">Admin</button>
+<button routerLink="http">Http</button>
+<router-outlet></router-outlet>

@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MyService } from '../service/my-service';
+import { ActivatedRoute } from '@angular/router';
+import { MyTrackService } from '../my-track-service';
 
 @Component({
   selector: 'app-forms',
@@ -17,7 +19,15 @@ export class FormsComponent implements OnInit {
     email: ''
   }
 
-  constructor(private ser: MyService) { }
+  constructor(
+    private ser: MyService,
+    private ar:ActivatedRoute,
+    private tr: MyTrackService
+  ) { 
+    tr.signal.subscribe(val => {
+      console.log(val)
+    })
+  }
 
   onSubmit(form){
     console.log(form);
@@ -26,9 +36,15 @@ export class FormsComponent implements OnInit {
   }
 
   ngOnInit() {
-    setInterval(()=>{
-      console.log(this.ser.value);
-    }, 2000)
+    // setInterval(()=>{
+    //   console.log(this.ser.value);
+    // }, 2000)
+
+    // console.log(this.ar)
+
+    // setTimeout(()=>{
+    //   this.tr.sendSignal('asdfghj');
+    // }, 5000)
   }
 
 }
